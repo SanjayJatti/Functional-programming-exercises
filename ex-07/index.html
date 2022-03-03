@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FP : ex 07</title>
+</head>
+<body>
+    <h1>1.Find number of strings with similar number of charcters</h1>
+    <h1>2. Return an array of strings having vowels</h1>
+    <h1>3. Return object with item as key and item length as value</h1>
+    <script>
+        const arr = ["apple", "banana", "spy", "cat"];
+
+        // const stringLength = (acc , curr) => !acc[curr.length]? { ...acc , [curr.length]:1  } : { ...acc, [curr.length]: acc[curr.length] + 1 }
+
+        // const result = arr.reduce(stringLength, {});
+        // console.log(result)
+
+        const result = arr.reduce((acc, curr) => {
+
+            if(curr.length in acc){
+                return { ...acc, [curr.length]: acc[curr.length] + 1 }
+            }
+            else{
+               return {...acc, [curr.length] : 1}
+            }} ,{})
+         console.log(result);
+
+
+
+        const wordWithVowel = arr.filter(word => word.includes("a") ||  word.includes("e") ||  word.includes("i") || word.includes("o") ||  word.includes("u") );
+        console.log(wordWithVowel)
+
+        // const itemObj = arr.map(item => ({key : item, value : item.length}))
+        // console.log(itemObj)
+        const itemObj = arr.reduce((acc, curr) => ({...acc, [curr]: curr.length}) , {})
+        console.log(itemObj)
+    </script>
+    
+</body>
+</html>

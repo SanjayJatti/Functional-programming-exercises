@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FP : ex 06</title>
+</head>
+<body>
+    <h1>Return an object with sum of odd number and even numbers separately</h1>
+    <script>
+        const arr = [10, 25, 30 ,50 ,45];
+
+        const oddEvenObj = arr.reduce((acc, curr) => 
+        curr % 2 === 0 ? {odd: acc.odd, even: acc.even + curr} 
+        : {odd: acc.odd + curr, even: acc.even}, {odd: 0, even: 0}) 
+        console.log(oddEvenObj);
+
+        const sumObj = {};
+        sumObj["odd"] = arr.filter(num => num %2 !==0).reduce((acc,curr) => acc + curr);
+        sumObj["even"] = arr.filter(num => num %2 ===0).reduce((acc,curr) => acc + curr);
+        console.log(sumObj);
+
+        const oddEvenSum = arr.reduce((acc, curr) => curr % 2 === 0 ? {...acc, even: acc.even + curr} : {...acc, odd: acc.odd + curr}, {odd : 0, even: 0})
+        console.log(oddEvenSum);
+    </script>
+</body>
+</html>
