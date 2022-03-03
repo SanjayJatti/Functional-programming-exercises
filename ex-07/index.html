@@ -13,28 +13,27 @@
     <script>
         const arr = ["apple", "banana", "spy", "cat"];
 
-        // const stringLength = (acc , curr) => !acc[curr.length]? { ...acc , [curr.length]:1  } : { ...acc, [curr.length]: acc[curr.length] + 1 }
+        const stringLength = (acc , curr) => !acc[curr.length]? { ...acc , [curr.length]: 1} : { ...acc, [curr.length]: acc[curr.length] + 1 }
 
-        // const result = arr.reduce(stringLength, {});
-        // console.log(result)
+        const result = arr.reduce(stringLength, {});
+        console.log(result)
 
-        const result = arr.reduce((acc, curr) => {
+        // const result = arr.reduce((acc, curr) => {
 
-            if(curr.length in acc){
-                return { ...acc, [curr.length]: acc[curr.length] + 1 }
-            }
-            else{
-               return {...acc, [curr.length] : 1}
-            }} ,{})
-         console.log(result);
+        //     if(curr.length in acc){
+        //         return { ...acc, [curr.length]: acc[curr.length] + 1 }
+        //     }
+        //     else{
+        //        return {...acc, [curr.length] : 1}
+        //     }} ,{})
+        //  console.log(result);
 
 
 
         const wordWithVowel = arr.filter(word => word.includes("a") ||  word.includes("e") ||  word.includes("i") || word.includes("o") ||  word.includes("u") );
         console.log(wordWithVowel)
 
-        // const itemObj = arr.map(item => ({key : item, value : item.length}))
-        // console.log(itemObj)
+      
         const itemObj = arr.reduce((acc, curr) => ({...acc, [curr]: curr.length}) , {})
         console.log(itemObj)
     </script>
